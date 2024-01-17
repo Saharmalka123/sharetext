@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Button Demo</title>
+</head>
+<body><span class="info-icon" style="margin-right: 5px; font-size: 1.2em;">ℹ</span> Powered by <b><a href="https://converter.app/" style="color: white;" target="_blank">Converter App</a></b>
+</div>
+<h1>Web Share API Demo</h1>
+<button id="shareButton">Share This Page</button>
+<script>
+       document.getElementById('shareButton').addEventListener('click', () => {
+    if (navigator.share) {
+        navigator.share({
+            title: 'WebPage Title',
+            text: 'Your custom text goes here.' // Replace with the text you want to share
+            // URL is omitted here
+        }).then(() => {
+            console.log('Content shared successfully');
+        })
+        .catch(error => {
+            console.error('Error sharing content:', error);
+        });
+    } else {
+        alert('Web Share is not supported on this browser.');
+    }
+});
+    </script>
+
+</body></html>
